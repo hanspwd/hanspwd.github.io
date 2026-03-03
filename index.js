@@ -3,8 +3,8 @@ function moverBotonNo() {
     const vv = window.visualViewport;
 
     // Definimos la resolución estándar deseada
-    const anchoLimite = 1280;
-    const altoLimite = 720;
+    const anchoLimite = 1000;
+    const altoLimite = 700;
 
     // Calculamos el área disponible real (no podemos moverlo a 1280 si la pantalla es de 800)
     // Así que usamos el mínimo entre la resolución estándar y el tamaño de la pantalla actual
@@ -33,4 +33,5 @@ function moverBotonNo() {
     btnNo.style.left = x + 'px';
     btnNo.style.top = y + 'px';
     btnNo.style.zIndex = "999";
+
 }
