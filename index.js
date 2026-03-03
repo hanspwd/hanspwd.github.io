@@ -1,20 +1,23 @@
 let escalaSi = 1;
 let alertaMostrada = false;
-const musica = document.getElementById('musica');
 
 function accionarBotones() {
+    const musica = document.getElementById('musica');
     moverBotonNo();
     agrandarBotonSi();
-    if(musica.paused) musica.play().catch(e => console.log("Audio waiting for click"));
+    if(musica.paused) musica.play().catch(e => console.log("Audio esperando interacción"));
 }
 
 function moverBotonNo() {
     const btnNo = document.getElementById('btn-no');
-    const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - 40);
-    const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - 40);
+    const padding = 50;
+    const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - padding);
+    const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - padding);
+    
     btnNo.style.position = 'fixed';
     btnNo.style.left = x + 'px';
     btnNo.style.top = y + 'px';
+    btnNo.style.zIndex = "999";
 }
 
 function agrandarBotonSi() {
@@ -36,23 +39,32 @@ function agrandarBotonSi() {
 }
 
 function aceptarPololeo() {
+    const musica = document.getElementById('musica');
     if(musica.paused) musica.play();
+    
     document.getElementById('main-card').classList.add('hidden');
     document.getElementById('success-card').classList.remove('hidden');
+    
     document.body.style.background = "linear-gradient(135deg, #e1f5fe, #f3e5f5)";
     document.body.style.overflowY = "auto";
+    document.documentElement.style.overflowY = "auto";
+    
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    
     generarLluvia();
 }
 
 function irAPregunta13() {
     document.getElementById('success-card').classList.add('hidden');
     document.getElementById('question-13-card').classList.remove('hidden');
-    window.scrollTo(0,0);
+    window.scrollTo({top: 0, behavior: 'smooth'});
     document.body.style.overflowY = "hidden";
 }
 
 function finalRespuesta(acepta) {
     document.getElementById('question-13-card').classList.add('hidden');
+    document.body.style.overflowY = "auto"; 
+    
     if(acepta) {
         document.getElementById('final-yes-card').classList.remove('hidden');
         generarLluvia();

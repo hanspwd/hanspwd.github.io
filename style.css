@@ -8,13 +8,15 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; 
     min-height: 100vh;
     margin: 0;
     background: linear-gradient(135deg, var(--celeste) 0%, var(--morado-claro) 100%);
-    font-family: 'Poppins', sans-serif;
+    /* Fuente principal suave y elegante */
+    font-family: 'Quicksand', sans-serif;
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .card {
@@ -30,19 +32,21 @@ body {
     z-index: 10;
     border: 1px solid rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
-    margin: 20px 0;
+    margin: 40px auto; 
 }
 
 h1 {
     color: var(--morado-oscuro);
+    font-weight: 600;
     font-size: 1.8rem;
     margin-bottom: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .pregunta-principal {
+    /* Fuente manuscrita elegante para momentos especiales */
     font-family: 'Caveat', cursive;
-    font-size: 3rem;
+    font-size: 3.2rem;
     color: #4a148c;
     margin: 15px 0;
     line-height: 1.1;
@@ -51,9 +55,11 @@ h1 {
 p {
     color: #444;
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 400;
 }
 
+/* El resto del código CSS se mantiene intacto para no afectar funcionalidades */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -96,6 +102,7 @@ p {
 }
 
 button {
+    font-family: 'Quicksand', sans-serif;
     padding: 15px 40px;
     font-size: 1.1rem;
     border: none;
