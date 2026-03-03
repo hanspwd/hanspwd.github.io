@@ -11,39 +11,35 @@ function accionarBotones() {
 function moverBotonNo() {
     const btnNo = document.getElementById('btn-no');
     
-    // Usamos visualViewport para saber exactamente qué ve el usuario (con o sin zoom)
-    const vv = window.visualViewport;
-    const padding = 20;
+    // Usamos el tamaño de la ventana actual
+    const anchoVentana = window.innerWidth;
+    const altoVentana = window.innerHeight;
 
-    // Calculamos los límites dentro del área visible actual
-    const minX = vv.offsetLeft + padding;
-    const minY = vv.offsetTop + padding;
-    const maxX = vv.offsetLeft + vv.width - btnNo.offsetWidth - padding;
-    const maxY = vv.offsetTop + vv.height - btnNo.offsetHeight - padding;
+    // Definimos un margen interno (padding) para que nunca toque los bordes físicos
+    const padding = 80; 
 
-    // Generamos la posición aleatoria asegurando que esté en el rango visible
-    const x = Math.random() * (maxX - minX) + minX;
-    const y = Math.random() * (maxY - minY) + minY;
+    // Calculamos posiciones aleatorias asegurando que el botón + su ancho queden dentro
+    // Math.max(padding, ...) evita que se vaya a números negativos a la izquierda
+    const x = Math.max(padding, Math.random() * (anchoVentana - btnNo.offsetWidth - padding));
+    const y = Math.max(padding, Math.random() * (altoVentana - btnNo.offsetHeight - padding));
     
+    // Aplicamos la posición
     btnNo.style.position = 'fixed';
-    btnNo.style.left = x + 'px';
-    btnNo.style.top = y + 'px';
+    btnNo.style.left = `${x}px`;
+    btnNo.style.top = `${y}px`;
     btnNo.style.zIndex = "999";
 }
 
 function agrandarBotonSi() {
     const btnSi = document.getElementById('btn-si');
-    const rect = btnSi.getBoundingClientRect();
-    const maxEscalaAncho = (window.innerWidth * 0.85) / rect.width;
-    const maxEscalaAlto = (window.innerHeight * 0.85) / rect.height;
-    const escalaLimite = Math.min(maxEscalaAncho, maxEscalaAlto, 3.5);
+    const escalaLimite = 9; // Límite generoso para que crezca mucho
 
     if (escalaSi < escalaLimite) {
-        escalaSi += 0.25; 
+        escalaSi += 0.35; 
         btnSi.style.transform = `scale(${escalaSi})`;
     }
     
-    if(escalaSi >= 2.5 && !alertaMostrada) {
+    if(escalaSi >= 3 && !alertaMostrada) {
         alert("DALE A QUE SÍ DESGRACIADA AGHJHGGHGH");
         alertaMostrada = true;
     }
@@ -56,10 +52,12 @@ function aceptarPololeo() {
     document.getElementById('main-card').classList.add('hidden');
     document.getElementById('success-card').classList.remove('hidden');
     
-    document.body.style.background = "linear-gradient(135deg, #e1f5fe, #f3e5f5)";
+    // Permitir scroll y cambiar alineación
+    document.body.style.alignItems = "flex-start";
     document.body.style.overflowY = "auto";
     document.documentElement.style.overflowY = "auto";
     
+    document.body.style.background = "linear-gradient(135deg, #e1f5fe, #f3e5f5)";
     window.scrollTo({top: 0, behavior: 'smooth'});
     
     generarLluvia();
@@ -68,6 +66,7 @@ function aceptarPololeo() {
 function irAPregunta13() {
     document.getElementById('success-card').classList.add('hidden');
     document.getElementById('question-13-card').classList.remove('hidden');
+    document.body.style.alignItems = "center";
     window.scrollTo({top: 0, behavior: 'smooth'});
     document.body.style.overflowY = "hidden";
 }
