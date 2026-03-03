@@ -10,9 +10,20 @@ function accionarBotones() {
 
 function moverBotonNo() {
     const btnNo = document.getElementById('btn-no');
-    const padding = 50;
-    const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - padding);
-    const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - padding);
+    
+    // Usamos visualViewport para saber exactamente qué ve el usuario (con o sin zoom)
+    const vv = window.visualViewport;
+    const padding = 20;
+
+    // Calculamos los límites dentro del área visible actual
+    const minX = vv.offsetLeft + padding;
+    const minY = vv.offsetTop + padding;
+    const maxX = vv.offsetLeft + vv.width - btnNo.offsetWidth - padding;
+    const maxY = vv.offsetTop + vv.height - btnNo.offsetHeight - padding;
+
+    // Generamos la posición aleatoria asegurando que esté en el rango visible
+    const x = Math.random() * (maxX - minX) + minX;
+    const y = Math.random() * (maxY - minY) + minY;
     
     btnNo.style.position = 'fixed';
     btnNo.style.left = x + 'px';
