@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alana mi amor ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="musica" loop>
+        <source src="https://www.chosic.com/wp-content/uploads/2021/07/Rainy-Day-Games.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="card" id="main-card">
+        <h1>Alana mi amor <3 ✨</h1>
+        <p>Quisiera dar yo la iniciativa en esto, así que quería preguntarte algo...</p>
+        <div class="pregunta-principal">¿Keri pololear conmigo? uwu</div>
+        
+        <div class="buttons">
+            <button id="btn-si" onclick="aceptarPololeo()">¡SÍ!</button>
+            <button id="btn-no" onmouseover="accionarBotones()" onclick="accionarBotones()">No</button>
+        </div>
+    </div>
+
+    <div class="card hidden" id="success-card">
+        <div class="pregunta-principal">Te amo muchísimo <3 💕</div>
+        <p>Mi vida, mi cielito, mi corazón, mi niña bonita, mi cosita, mi futuro todo, te amo demasiado de verdad. Prometo hacerte la mujer más feliz posible, quiero hacerte bien, quiero que todo vaya bien, quiero poder verte algún día, quiero hacer muchas cositas juntitos. De verdad gracias por aceptar ser mi pareja, te amo muchísimo, prometo cuidarte e intentar ser la mejor opción que pudiste haber elegido para ser tu pareja, me encantas, cada momento que paso contigo me hace sentir muy feliz y tranquilo, amo cuando te pones a cantar, amo cuando me cuentas cosas, amo tu voz, amo como eres, te amo a ti Alana <3. Dicho todo esto muak uwu te amo mi weoncita po weon muak te adoro y amo tanto <3</p>
+        <p>Prometo cuidarte y hacer que cada día sea muy bonito, sin peleas ni cositas malas.</p>
+        
+        <div class="gallery">
+            <div class="polaroid" style="transform: rotate(-3deg);">
+                <img src="imagenes/15.png" alt="Momento bonito 0">
+            </div>
+            <div class="polaroid" style="transform: rotate(-3deg);">
+                <img src="imagenes/4.png" alt="Momento bonito 1">
+            </div>
+            <div class="polaroid" style="transform: rotate(4deg);">
+                <img src="imagenes/2.png" alt="Momento bonito 2">
+            </div>
+            <div class="polaroid" style="transform: rotate(-2deg);">
+                <img src="imagenes/11.png" alt="Momento bonito 3">
+            </div>
+            <div class="polaroid" style="transform: rotate(5deg);">
+                <img src="imagenes/5.png" alt="Momento bonito 4">
+            </div>
+            <div class="polaroid" style="transform: rotate(7deg);">
+                <img src="imagenes/6.png" alt="Momento bonito 5">
+            </div>
+            <div class="polaroid" style="transform: rotate(1deg);">
+                <img src="imagenes/8.png" alt="Momento bonito 6">
+            </div>
+            <div class="polaroid" style="transform: rotate(4deg);">
+                <img src="imagenes/10.png" alt="Momento bonito 7">
+            </div>
+            <div class="polaroid" style="transform: rotate(-4deg);">
+                <img src="imagenes/12.png" alt="Momento bonito 7">
+            </div>
+        </div>
+
+        <p><strong>Te amo con todo mi corazón, Alana. ❤️</strong></p>
+        <p><strong>03/03 ❤️‍🩹</strong></p>
+        <button class="btn-next" onclick="irAPregunta13()">Tengo una cosita más... ✨</button>
+    </div>
+
+    <div class="card hidden" id="question-13-card">
+        <h1>Una última cosa... 🥺</h1>
+        <div class="pregunta-principal">Y ahora que ya somos pololos... ¿Aceptas ser mi 13/03 también? jijijejejujuJUJUJUJJAAJAOOJUUJUAJUJWJAW UWU</div>
+        <div class="buttons">
+            <button class="btn-choice-si" onclick="finalRespuesta(true)">¡SÍ, ACEPTO!</button>
+            <button class="btn-choice-no" onclick="finalRespuesta(false)">No...</button>
+        </div>
+    </div>
+
+    <div class="card hidden" id="final-yes-card">
+        <div class="pregunta-principal">OMG SIIIIIIIIII 💕💕</div>
+        <p>Más te valía decir que sí ok? ❤️. Prometo y espero que nuestro 13/03 será muy bonito mi corazón.</p>
+        <p>Te amo infinito, Alana. Gracias por existir y llegar a mi vida.</p>
+        <img src="imagenes/9.png" alt="Goku y Milk Boda" class="wedding-img">
+    </div>
+
+    <div class="card hidden" id="final-no-card">
+        <div class="pregunta-principal">QUE 😭</div>
+        <p>¿OK ME NIEGAS? Igual ya me aceptaste pololear, así que muejejeje muah ❤️ no te salvarás de cuando te lo pida irl 💕</p>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
